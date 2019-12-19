@@ -6,13 +6,7 @@ body {
    height: 1200px;
 }
 
-p {
-   color: white;
-}
-
-li {
-   list-style: none;
-}
+li {list-style: none;}
 
 hr {
    margin-top: 40px;
@@ -34,9 +28,13 @@ hr {
 #leftContainer {
    display: flex;
    flex-direction: column;
-   flex-grow: 1.5;
+   flex-grow: 3;
    text-align: center;
    background-color: #3B9DFF;
+}
+
+#leftContainer  p {
+   color: white;
 }
 
 /* 프사 영역의 li width 값 */
@@ -98,36 +96,76 @@ hr {
    flex-grow: 2;
 }
 
+/* 오른쪽 flexBox 모든 요소 */
+#rightContainer > *{margin-bottom: 50px;}
+
+/* 오른쪽 flexBox 모든 li */
+#rightContainer li {
+   margin-top: 10px;
+}
+
+
 /* header */
 #rightContainer header {
-   margin-top: 40px;
+   margin-top: 50px;
    font-size: 70px;
 }
 
 /* button 
    A> B 는 직계 자녀 인 모든 B 를 선택합니다 . */
-#rightContainer li > button {
-   margin: 40px 40px; /* 위 아래 */
-   width: 83%;
+#rightContainer > button {
+   margin: 40px 10px 50px 70px; /* 위 오 아 왼 */
+   width: 80%;
    border-radius: 50px;
    background-color: white;
    font-size: 25px;
    border: 3px solid #3B9DFF;
 }
 
-#rightContainer li
+/* 프로필 flexBox-row */
+#profile{
+   display: flex;
+   flex-direction: row;
+}
 
+/* 생년월일, 전공 */
+#profile > li {
+   margin-left: 75px;
+}
+
+/* 개발 경험 flexBox-column */
+#devEx {
+   display : flex;
+   flex-direction: column;
+}
+
+#devEx li{
+   margin-left: 75px;
+   margin-bottom: -10px;
+   text-align: left;
+}
+
+
+#character {
+   display: flex;
+   flex-direction: row;
+   flex-grow: 1;
+   text-align: center;
+}
+
+#character > li{
+   flex-grow: 1;
+}
+
+/* 폰트 굵기 */
+.bold {
+   font-size: 20px;
+   font-weight: bold;
+}
+
+/* 💡 */
 .custom_li:before {
    content : "💡";
    vertical-align: middle;
    font-size: 25px;
-}
-
-footer {
-   border: 3px solid silver;
-}
-ol.mylist li:before {
-   content: ">";
-   display: inline-block;
-   vertical-align: middle;
 }
