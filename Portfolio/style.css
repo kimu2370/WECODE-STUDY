@@ -1,0 +1,133 @@
+body {
+   box-sizing : border-box;
+   border: 3px solid red;
+   margin: 40px 250px 40px 250px;
+   padding: 0;
+   height: 1200px;
+}
+
+p {
+   color: white;
+}
+
+li {
+   list-style: none;
+}
+
+hr {
+   margin-top: 40px;
+   border: none;
+   border-top: 5px dotted #333;
+   color: #333;
+   width: 80%;
+   text-align: center;
+}
+
+/* 부모 flexBox */
+#container {
+   display: flex;
+   flex-direction: row;
+   height: 1200px;
+}
+
+/* 왼쪽 flexBox */
+#leftContainer {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1.5;
+   text-align: center;
+   background-color: #3B9DFF;
+}
+
+/* 프사 영역의 li width 값 */
+#leftContainer li:first-child {
+   flex-grow: 0.5;
+}
+
+/* li 나머지 width 값 
+   A B는 A 내부의 모든 B를 선택합니다 .*/
+#leftContainer li {
+   flex-grow: 1;
+}
+
+/* 프사 글씨 아래 
+   A ~ B 는 A 다음에 오는 모든 B 를 선택합니다 */
+#leftContainer li:nth-child(1) p~p{
+   font-size: 20px;
+   margin-top: 10px;
+}
+
+/* 프사 글씨 위*/
+#leftContainer li:nth-child(1) p {
+   font-size: 30px;
+   font-weight: bold;
+}
+
+/* 프로필 로고 아이콘 */
+#logo {
+   background-color: white;
+   border-radius: 100%;
+   padding: 20px;
+   width: 110px;
+   margin: 40px 0 25px 0;
+}
+
+/* 아이콘 */
+.circle {
+   border-radius: 45%;
+   background-size: cover;
+   background-color: #a1d3ff;
+   padding: 10px;
+   margin-bottom: 10px;
+   width: 50px;
+}
+
+/* 아이콘 글씨 */
+.left_icon_font {
+   padding: 3px;
+   font-size: 15px;
+   font-weight: bold;
+}
+
+/* 오른쪽 flexBox */
+#rightContainer {
+   display: flex;
+   flex-direction: column;
+   border: 3px solid yellowgreen;
+   text-align: center;
+   flex-grow: 2;
+}
+
+/* header */
+#rightContainer header {
+   margin-top: 40px;
+   font-size: 70px;
+}
+
+/* button 
+   A> B 는 직계 자녀 인 모든 B 를 선택합니다 . */
+#rightContainer li > button {
+   margin: 40px 40px; /* 위 아래 */
+   width: 83%;
+   border-radius: 50px;
+   background-color: white;
+   font-size: 25px;
+   border: 3px solid #3B9DFF;
+}
+
+#rightContainer li
+
+.custom_li:before {
+   content : "💡";
+   vertical-align: middle;
+   font-size: 25px;
+}
+
+footer {
+   border: 3px solid silver;
+}
+ol.mylist li:before {
+   content: ">";
+   display: inline-block;
+   vertical-align: middle;
+}
