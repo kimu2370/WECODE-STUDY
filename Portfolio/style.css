@@ -1,6 +1,5 @@
 body {
    box-sizing : border-box;
-   border: 3px solid red;
    margin: 40px 250px 40px 250px;
    padding: 0;
    height: 1200px;
@@ -28,7 +27,7 @@ hr {
 #leftContainer {
    display: flex;
    flex-direction: column;
-   flex-grow: 3;
+   flex-grow: 1.5;
    text-align: center;
    background-color: #3B9DFF;
 }
@@ -91,7 +90,6 @@ hr {
 #rightContainer {
    display: flex;
    flex-direction: column;
-   border: 3px solid yellowgreen;
    text-align: center;
    flex-grow: 2;
 }
