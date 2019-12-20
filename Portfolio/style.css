@@ -69,6 +69,18 @@ hr {
    margin: 40px 0 25px 0;
 }
 
+#leftContainer .circle:hover {
+   cursor: pointer;
+   background-color: palegoldenrod;
+   transition: transform 0.3s;
+   transform: scale(1.2,1.2);
+}
+#rightContainer .circle:hover {
+   cursor: pointer;
+   background-color: palegoldenrod;
+   transition: transform 0.3s;
+   transform: translateY(-15px);
+}
 /* 아이콘 */
 .circle {
    border-radius: 45%;
@@ -77,6 +89,7 @@ hr {
    padding: 10px;
    margin-bottom: 10px;
    width: 50px;
+   transform: scale(1,1);
 }
 
 /* 아이콘 글씨 */
