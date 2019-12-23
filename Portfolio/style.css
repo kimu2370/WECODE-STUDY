@@ -81,6 +81,7 @@ hr {
    transition: transform 0.3s;
    transform: translateY(-15px);
 }
+
 /* 아이콘 */
 .circle {
    border-radius: 45%;
@@ -89,7 +90,6 @@ hr {
    padding: 10px;
    margin-bottom: 10px;
    width: 50px;
-   transform: scale(1,1);
 }
 
 /* 아이콘 글씨 */
@@ -176,7 +176,17 @@ hr {
 
 /* 💡 */
 .custom_li:before {
-   content : "💡";
+   content : "💡 ";
    vertical-align: middle;
    font-size: 25px;
+}
+.isClick{
+   display: none;
+}
+#map {
+   position: absolute;
+   top: 11%;
+   left: 25.5%;
+   width:50%;
+   height:50%;
 }

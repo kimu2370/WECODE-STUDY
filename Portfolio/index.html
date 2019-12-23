@@ -4,20 +4,23 @@
    <meta charset="UTF-8">
    <link rel="stylesheet" href="reset.css">
    <link rel="stylesheet" href="style.css">
+   <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6138282a38333ffc7fb05286659e008d&libraries=services"></script>
    <title>자기소개서</title>
 </head>
 <body>
+   <div id="map"></div>
    <div id="container">
       <div id="leftContainer">
          <li><img id="logo" src="img/profile_icon.png" alt="프로필 사진">
             <p>김승현</p><p>Web Developer</p>
             <hr>
          </li>
+         <!-- <a href="https://map.kakao.com/link/search/장월로 4길 40"></a> -->
          <li><img class="circle" src="img/address_icon.png" alt="주소">
-            <P class="left_icon_font">서울시 성북구</P>
+            <P class="left_icon_font">우리집</P>
          </li>
          <li><img class="circle" src="img/phone_icon.png" alt="전화번호">
-            <P class="left_icon_font">010-4788-2370</P>
+            <P class="left_icon_font">전화번호</P>
          </li>
          <li ><img class="circle" src="img/mail_icon.png" alt="이메일">
             <P class="left_icon_font">kimu2370@naver.com</P>
@@ -56,5 +59,46 @@
          </div>
       </div>
    </div>
+   <script>
+      let displayMap = document.querySelector('.circle:nth-child(1)');
+      // let isClick = document.querySelector('.isClick');
+      displayMap.addEventListener('click',function(){
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+         mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+         };  
+
+         // 지도를 생성합니다    
+         var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+         // 주소-좌표 변환 객체를 생성합니다
+         var geocoder = new kakao.maps.services.Geocoder();
+
+         // 주소로 좌표를 검색합니다
+         geocoder.addressSearch('장월로4길 40', function(result, status) {
+
+            // 정상적으로 검색이 완료됐으면 
+            if (status === kakao.maps.services.Status.OK) {
+               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+               // 결과값으로 받은 위치를 마커로 표시합니다
+               var marker = new kakao.maps.Marker({
+                     map: map,
+                     position: coords
+               });
+
+               // 인포윈도우로 장소에 대한 설명을 표시합니다
+               var infowindow = new kakao.maps.InfoWindow({
+                     content: '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'
+               });
+               infowindow.open(map, marker);
+
+               // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+               map.setCenter(coords);
+            } 
+         });   
+      }); 
+   </script>
 </body>
 </html>
