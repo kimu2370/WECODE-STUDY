@@ -180,10 +180,8 @@ hr {
    vertical-align: middle;
    font-size: 25px;
 }
-.isClick{
-   display: none;
-}
 #map {
+   opacity: 0; /* 투명도 기본값 1 작은 숫자로 갈수록 투명해진다 */
    position: absolute;
    top: 11%;
    left: 25.5%;
