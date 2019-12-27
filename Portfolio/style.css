@@ -5,6 +5,8 @@ body {
    height: 1200px;
 }
 
+span {display:block;}
+
 li {list-style: none;}
 
 hr {
@@ -32,7 +34,7 @@ hr {
    background-color: #3B9DFF;
 }
 
-#leftContainer  p {
+#leftContainer  span {
    color: white;
 }
 
@@ -49,13 +51,13 @@ hr {
 
 /* 프사 글씨 아래 
    A ~ B 는 A 다음에 오는 모든 B 를 선택합니다 */
-#leftContainer li:nth-child(1) p~p{
+#leftContainer li:nth-child(1) span~span{
    font-size: 20px;
    margin-top: 10px;
 }
 
 /* 프사 글씨 위*/
-#leftContainer li:nth-child(1) p {
+#leftContainer li:nth-child(1) span {
    font-size: 30px;
    font-weight: bold;
 }

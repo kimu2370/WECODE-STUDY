@@ -12,21 +12,20 @@
    <div id="container">
       <div id="leftContainer">
          <li><img id="logo" src="img/profile_icon.png" alt="프로필 사진">
-            <p>김승현</p><p>Web Developer</p>
+            <span>김승현</span><span>Web Develospaner</span>
             <hr>
          </li>
-         <!-- <a href="https://map.kakao.com/link/search/장월로 4길 40"></a> -->
          <li><img class="circle" src="img/address_icon.png" alt="주소">
-            <P class="left_icon_font">우리집</P>
+            <span class="left_icon_font">우리집</span>
          </li>
          <li><img class="circle" src="img/phone_icon.png" alt="전화번호">
-            <P class="left_icon_font">전화번호</P>
+            <span class="left_icon_font">전화번호</span>
          </li>
          <li ><img class="circle" src="img/mail_icon.png" alt="이메일">
-            <P class="left_icon_font">kimu2370@naver.com</P>
+            <span class="left_icon_font">kimu2370@naver.com</span>
          </li>
          <li><a href="https://www.instagram.com/k_seunghyunn/" target="blank"><img class="circle" src="img/instagram_icon.png" alt="sns주소"></a>
-            <P class="left_icon_font">@k_seunghyunn</P>
+            <span class="left_icon_font">@k_seunghyunn</span>
          </li>
       </div>
       <div id="rightContainer">
@@ -36,74 +35,29 @@
             <li class="custom_li">생년월일 : 93년07월10일</li>
             <li class="custom_li">전공 : 정보통신공학</li>
          </div>
-         <span>
+         <div>
             <li>전공 시간에 짧게 배웠던 프로그래밍 언어에 다시 흥미가 생겨서 19년 올해</li> 
             <li>여름부터 본격적으로 개발 공부를 시작하였습니다. 현재는 협업 경험과 개발</li> 
             <li>역량을쌓기 위해 WECODE라는 BootCamp에 참여하고 있습니다.</li>
-         </span>
+         </div>
          <button>DEVELOPER EXPERIENCE</button>
          <div id="devEx">
             <li class="custom_li">2019.09.02~2019.11.16</li>
          </div>
-         <span>
+         <div>
             <li class="bold">CODESTATES_BOOTCAMP</li>
             <li>코드스테이츠라는 부트캠프에서 Pre-course 과정을 수료하였습니다.</li>
             <li>HTML,CSS,JavaScript,Git에 관한 전반적인 기초 문법과 Pair 프로그래밍 및</li>
             <li>미니해커톤을 진행하였습니다.</li>
-         </span>
+         </div>
          <button>C H A R A C T E R</button>
          <div id="character">
-            <li><img class="circle" src="img/passion_icon.png" alt="끈기"><p>포기하지 않는 끈기</p></li>
-            <li><img class="circle" src="img/positive_icon.png" alt="긍정"><p>긍적적인 생각</p></li>
-            <li><img class="circle" src="img/together_icon.png" alt="의사소통"><p>문제해결을 위한 의사소통</p></li>
+            <li><img class="circle" src="img/passion_icon.png" alt="끈기"><span>포기하지 않는 끈기</span></li>
+            <li><img class="circle" src="img/positive_icon.png" alt="긍정"><span>긍적적인 생각</span></li>
+            <li><img class="circle" src="img/together_icon.png" alt="의사소통"><span>문제해결을 위한 의사소통</span></li>
          </div>
       </div>
    </div>
-   <script>
-      let displayMap = document.querySelector('.circle:nth-child(1)');
-      displayMap.addEventListener('click',function(){
-         let mapArea = document.querySelector('#map');
-         if(mapArea.style.opacity==="0"){
-            mapArea.style.opacity="1";
-         }else{
-            mapArea.style.opacity="0";
-         }
-      }); 
-      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-         mapOption = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-         };  
-
-         // 지도를 생성합니다    
-         var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-         // 주소-좌표 변환 객체를 생성합니다
-         var geocoder = new kakao.maps.services.Geocoder();
-
-         // 주소로 좌표를 검색합니다
-         geocoder.addressSearch('장월로4길 40', function(result, status) {
-
-            // 정상적으로 검색이 완료됐으면 
-            if (status === kakao.maps.services.Status.OK) {
-               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-               // 결과값으로 받은 위치를 마커로 표시합니다
-               var marker = new kakao.maps.Marker({
-                     map: map,
-                     position: coords
-               });
-
-               // 인포윈도우로 장소에 대한 설명을 표시합니다
-               var infowindow = new kakao.maps.InfoWindow({
-                     content: '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'
-               });
-               infowindow.open(map, marker);
-
-               // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-               map.setCenter(coords);
-            } 
-         });
-   </script>
+   <script src="map.js"></script>
 </body>
 </html>
