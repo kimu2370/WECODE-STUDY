@@ -125,8 +125,10 @@ hr {
 }
 
 /* button 
-   A> B 는 직계 자녀 인 모든 B 를 선택합니다 . */
+   A> B 는 직계 자녀 인 모든 B 를 선택합
+   니다 . */
 #rightContainer > button {
+   outline: 0;
    margin: 40px 10px 50px 70px; /* 위 오 아 왼 */
    width: 80%;
    border-radius: 50px;
