@@ -1,0 +1,85 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html,body {
+   background: lightcyan;
+   text-align: center;
+   position: relative;
+   width: 100%;
+   height: 100%;
+   border: solid 2px tomato;
+}
+
+header,footer {
+   width: 100%;
+   height: 5%;
+   border: solid 2px black;
+   position: relative;
+   background: lightsalmon;
+}
+
+#appContainer {
+   position: relative;
+   left: 5%;
+   width: 90%;
+   height: 90%;
+   border: solid 2px yellowgreen;
+}
+#dateBox {
+   background: lightpink;
+   float: left;
+   padding: 3% 3% 3% 3%;
+   width: 50%;
+   height: 70%;
+}
+#dateBox>div{
+   width: 100%;
+   height: 50%;
+   border: solid 2px red;
+}
+.date {
+
+}
+.time {
+   
+}
+
+#weatherBox {
+   background: lightskyblue;
+   float: right;
+   padding: 3% 7% 3% 7%;
+   width: 50%;
+   height: 70%;
+}
+
+#weatherBox>div {
+   width: 100%;
+   height: 25%;
+   border: solid 2px blue;
+}
+.weatherIcon {
+   width: 15%;
+}
+.temperature {
+   font-size: 2rem;
+}
+.city {
+   font-size: 1.5rem;
+}
+.search {
+
+}
+ 
+#forecastBox {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 30%;
+   
+}
+#forecastBox>div {
+   border: solid 2px sandybrown;
+   width:100%;
+}
