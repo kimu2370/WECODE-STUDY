@@ -8,20 +8,18 @@
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-   <!-- div#appContainer>(div#dateBox>div.date+div.time)+
-      (div#weatherBox>div.weather+div.temperature+div.city+div.search)+(div#forecastBox>div.forecastItem) -->
    <header>header</header>
    <div id="appContainer">
       <div id="dateBox">
-         <div class="date">date</div>
-         <div class="time">time</div>
+         <div class="date">날짜</div>
+         <div class="time">시간</div>
       </div>
       <div id="weatherBox">
          <div>
             <img src="image/icon/sun.png" class="weatherIcon"></img>
          </div>
-         <div class="temperature">temperature</div>
-         <div class="city">city</div>
+         <div class="temperature">온도</div>
+         <div class="city">도시</div>
          <div class="search">
             <form id='searchForm'>
                <input type="search" id="searchText">
@@ -30,11 +28,31 @@
          </div>
       </div>
       <div id="forecastBox">
-         <div class="forecastItem">forecastItem1</div>
-         <div class="forecastItem">forecastItem2</div>
-         <div class="forecastItem">forecastItem3</div>
-         <div class="forecastItem">forecastItem4</div>
-         <div class="forecastItem">forecastItem5</div>
+         <div class="forecastItem">
+            <span><img class="forecastIcon"></img></span>
+            <span class="forecastTemp"></span>
+            <span class="forecastTime"></span>
+         </div>
+         <div class="forecastItem">
+            <span><img class="forecastIcon"></img></span>
+            <span class="forecastTemp"></span>
+            <span class="forecastTime"></span>
+         </div>
+         <div class="forecastItem">
+            <span><img class="forecastIcon"></img></span>
+            <span class="forecastTemp"></span>
+            <span class="forecastTime"></span>
+         </div>
+         <div class="forecastItem">
+            <span><img class="forecastIcon"></img></span>
+            <span class="forecastTemp"></span>
+            <span class="forecastTime"></span>
+         </div>
+         <div class="forecastItem">
+            <span><img class="forecastIcon"></img></span>
+            <span class="forecastTemp"></span>
+            <span class="forecastTime"></span>
+         </div>
       </div>
    </div>
    <footer>footer</footer>

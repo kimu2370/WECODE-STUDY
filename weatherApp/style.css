@@ -4,82 +4,102 @@
    box-sizing: border-box;
 }
 html,body {
-   background: lightcyan;
+   background-size: cover;
+   /* color: #636363; */
    text-align: center;
    position: relative;
    width: 100%;
    height: 100%;
-   border: solid 2px tomato;
 }
 
 header,footer {
-   width: 100%;
+   left: 10%;
+   top: 5%;
+   width: 80%;
    height: 5%;
-   border: solid 2px black;
    position: relative;
-   background: lightsalmon;
+   /* background: lightsalmon; */
 }
 
 #appContainer {
    position: relative;
-   left: 5%;
-   width: 90%;
-   height: 90%;
-   border: solid 2px yellowgreen;
+   left: 10%;
+   top: 5%;
+   width: 80%;
+   height: 80%;
 }
 #dateBox {
-   background: lightpink;
+   /* background: lightpink; */
    float: left;
    padding: 3% 3% 3% 3%;
    width: 50%;
-   height: 70%;
+   height: 60%;
 }
 #dateBox>div{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 3rem;
    width: 100%;
    height: 50%;
-   border: solid 2px red;
-}
-.date {
-
-}
-.time {
-   
 }
 
 #weatherBox {
-   background: lightskyblue;
+   /* background: lightskyblue; */
    float: right;
    padding: 3% 7% 3% 7%;
    width: 50%;
-   height: 70%;
+   height: 60%;
 }
 
 #weatherBox>div {
    width: 100%;
-   height: 25%;
-   border: solid 2px blue;
 }
 .weatherIcon {
-   width: 15%;
+   width: 30%;
 }
 .temperature {
-   font-size: 2rem;
+   font-size: 2.5rem;
 }
 .city {
-   font-size: 1.5rem;
+   font-size: 1.7rem;
 }
-.search {
-
+.searchForm {
 }
  
 #forecastBox {
    display: flex;
    flex-direction: row;
+   justify-content: space-around;
    width: 100%;
-   height: 30%;
+   height: 40%;
    
 }
-#forecastBox>div {
-   border: solid 2px sandybrown;
+.forecastItem {
+   display: flex;
+   flex-direction: column;
+   border: solid 2px rgb(240, 240, 240);
    width:100%;
+   margin-left: 2%;
+   border-radius: 25%;
+   opacity: 0.85;
+}
+.forecastItem>span {
+   margin-top: 5%;
+   height: 100%;
+}
+
+.forecastIcon {
+   width: 35%;
+}
+
+.forecastTemp {
+   font-size: 2rem;
+}
+
+.forecastTime {
+   font-size: 1.5rem;
+}
+img {
+   opacity: 0.7;
 }
