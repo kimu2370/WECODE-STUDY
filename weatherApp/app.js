@@ -1,7 +1,4 @@
 const body = document.querySelector("body");
-const initContainer = document.querySelector("#initContainer");
-const main = document.querySelector("#mainText");
-const template = document.querySelector("#template");
 const date = document.querySelector(".date");
 const time = document.querySelector(".time");
 const weatherBox = document.querySelector("#weatherBox");
@@ -14,13 +11,6 @@ const forecastItems = document.querySelectorAll(".forecastItem");
 const forecastIcon = document.querySelectorAll(".forecastIcon");
 const forecastTemp = document.querySelectorAll(".forecastTemp");
 const forecastTime = document.querySelectorAll(".forecastTime");
-
-//메인 글씨를 클릭하면 템플릿 화면으로 전환한다.
-main.addEventListener('click',()=>{
-   body.removeChild(initContainer);
-   let createTemplate = document.importNode(template.content,true);
-   body.append(createTemplate);
-});
 
 // 도시 이름을 입력하고, Enter키를 누루면 아래 함수가 실행됩니다.
 searchForm.addEventListener("submit",(event) => {
