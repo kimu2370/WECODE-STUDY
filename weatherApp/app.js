@@ -5,8 +5,9 @@ const weatherBox = document.querySelector("#weatherBox");
 const icon = document.querySelector(".weatherIcon");
 const temp = document.querySelector(".temperature");
 const city = document.querySelector(".city");
-const searchForm = document.getElementById("searchForm");
-const input = document.getElementById("searchText");
+const bgText = document.querySelector("#bgText");
+const searchForm = document.querySelector("#searchForm");
+const input = document.querySelector("#searchText");
 const forecastItems = document.querySelectorAll(".forecastItem");
 const forecastIcon = document.querySelectorAll(".forecastIcon");
 const forecastTemp = document.querySelectorAll(".forecastTemp");
@@ -17,7 +18,7 @@ searchForm.addEventListener("submit",(event) => {
    event.preventDefault();
 
    const text = input.value;
-   // console.log(text);
+
    input.value = "";
    input.disabled = true;
 
@@ -66,7 +67,7 @@ function getWeatherData(lat, lng) {
          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&APPID=${WEATHER_KEY}`
       ).then((response) => {
          response.json().then((data) => {
-            console.log("getWeatherDATA",data);
+
             let appInfo = {}; //화면에 보여줄 데이터를 담는다.
             appInfo["temp"] = data["main"]["temp"];
             appInfo["weather"] = data["weather"][0]["main"];
@@ -80,8 +81,6 @@ function getWeatherData(lat, lng) {
    });
 }
 
-
-
 // 3. 검색한 지도 정보를 바탕으로 타임존 정보를 얻는다.
 function getMomentInfo(appInfo) {
    return new Promise((resolve, reject) => {
@@ -90,9 +89,7 @@ function getMomentInfo(appInfo) {
       ).then((response) => {
          response.json().then((data) => {
 
-            // console.log("타임존 데이터",data);
             appInfo["timeZoneId"]=data["timeZoneId"];
-
             //moment로 객체에 현재 날짜와 시간 추가
             appInfo["dateFormat"]= moment().tz(appInfo["timeZoneId"]).format().split('T')[0].split('-');
             appInfo["timeFormat"]= moment().tz(appInfo["timeZoneId"]).format().split('T')[1].substring(0,8).split(':');
@@ -111,16 +108,11 @@ function getForecastInfo(appInfo) {
          `https://api.openweathermap.org/data/2.5/forecast?lat=${appInfo["lat"]}&lon=${appInfo["lng"]}&APPID=${WEATHER_KEY}`
       ).then((response) => {
          response.json().then((data) => {
-            data["list"].filter((item)=>{
-               if(Number(appInfo["timeFormat"][0]) < Number(item["dt_txt"].split(" ")[1].slice(0,2))){
-                  listArr.push(item);
-               };
-            });
-            //출력하고 싶은 일기예보 5개만 담았다.(현재시간의 예보를 제외한 다음 예보부터)
-            /* for(let i=3; i<8;i++){
-               listArr.push(data["list"][i]);
-            } */
-            console.log(listArr);
+
+            //현재 내 로컬 시간을 기준으로 5개의 일기예측 정보를 appInfo에 담는다.
+            for(let i=0; i<5; i++){
+               listArr.push(data["list"][i])
+            }
             appInfo["forecast"] = listArr.slice();
             resolve(appInfo);
          });
@@ -130,7 +122,7 @@ function getForecastInfo(appInfo) {
 
 // 4. 받은 날씨 정보로 화면을 변경합니다.
 function setInfo(cityName, appInfo) {
-   console.log(appInfo);
+   // console.log(appInfo);
    //날짜 포맷팅
    date.innerText = appInfo["dateFormat"][0]+"년 "+
                      appInfo["dateFormat"][1]+"월 "+
@@ -166,11 +158,9 @@ function setInfo(cityName, appInfo) {
    forecastItems.forEach((item,i) => {
       item.style.cssText = bgColorLinks[appInfo["forecast"][i]["weather"][0]["main"]];
    });
-    //입력창을 활성화 시킴.
+   
+   //배경 글자 없애기.
+   bgText.style.display = "none";
+   //입력창을 활성화 시킴.
    input.disabled = false;
 }
-
-// 12:00:00 중 ("12")시에 해당하는 부분들을 배열로 담았다.
-//  listArr=data["list"].map(item=>(
-//    item["dt_txt"].split(" ")[1].split(":")[0]
-// )).slice();
