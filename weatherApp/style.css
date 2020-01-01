@@ -4,14 +4,51 @@
    box-sizing: border-box;
 }
 html,body {
-   background-size: cover;
    /* color: #636363; */
    text-align: center;
    position: relative;
    width: 100%;
    height: 100%;
 }
+/* init 페이지 */
 
+#initContainer {
+   background: url(image/background/daybreaker.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   min-width: 100%;
+   min-height: 100%;
+}
+
+#mainText {
+   position: absolute;
+   color: #ffffff;
+   font-family: 'Nanum Brush Script', cursive;
+   font-size: 5rem;
+   text-align: left;
+   left:55%;
+   top: 60%;
+   transform:translateY(-15%);
+   animation-duration: 3.5s;
+   animation-name: weatherName;
+}
+#mainText:hover {
+   cursor: pointer;
+   color: khaki;
+}
+
+@keyframes weatherName {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+/* main 페이지 */
 header,footer {
    left: 10%;
    top: 5%;
@@ -64,8 +101,7 @@ header,footer {
 .city {
    font-size: 1.7rem;
 }
-.searchForm {
-}
+ 
  
 #forecastBox {
    display: flex;
@@ -82,7 +118,7 @@ header,footer {
    width:100%;
    margin-left: 2%;
    border-radius: 25%;
-   opacity: 0.85;
+   opacity: 0.6;
 }
 .forecastItem>span {
    margin-top: 5%;

@@ -1,4 +1,7 @@
 const body = document.querySelector("body");
+const initContainer = document.querySelector("#initContainer");
+const main = document.querySelector("#mainText");
+const template = document.querySelector("#template");
 const date = document.querySelector(".date");
 const time = document.querySelector(".time");
 const weatherBox = document.querySelector("#weatherBox");
@@ -11,6 +14,13 @@ const forecastItems = document.querySelectorAll(".forecastItem");
 const forecastIcon = document.querySelectorAll(".forecastIcon");
 const forecastTemp = document.querySelectorAll(".forecastTemp");
 const forecastTime = document.querySelectorAll(".forecastTime");
+
+//메인 글씨를 클릭하면 템플릿 화면으로 전환한다.
+main.addEventListener('click',()=>{
+   body.removeChild(initContainer);
+   let createTemplate = document.importNode(template.content,true);
+   body.append(createTemplate);
+});
 
 // 도시 이름을 입력하고, Enter키를 누루면 아래 함수가 실행됩니다.
 searchForm.addEventListener("submit",(event) => {
@@ -66,7 +76,7 @@ function getWeatherData(lat, lng) {
          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&APPID=${WEATHER_KEY}`
       ).then((response) => {
          response.json().then((data) => {
-
+            console.log("getWeatherDATA",data);
             let appInfo = {}; //화면에 보여줄 데이터를 담는다.
             appInfo["temp"] = data["main"]["temp"];
             appInfo["weather"] = data["weather"][0]["main"];
@@ -105,20 +115,23 @@ function getMomentInfo(appInfo) {
 
 // 4. 검색한 지도를 바탕으로 일기예보 정보를 얻는다.
 function getForecastInfo(appInfo) {
-   let listArr=[],forecast=[];
+   let listArr=[];
    return new Promise((resolve, reject) => {
       fetch(
          `https://api.openweathermap.org/data/2.5/forecast?lat=${appInfo["lat"]}&lon=${appInfo["lng"]}&APPID=${WEATHER_KEY}`
       ).then((response) => {
          response.json().then((data) => {
-            console.log(data);
+            data["list"].filter((item)=>{
+               if(Number(appInfo["timeFormat"][0]) < Number(item["dt_txt"].split(" ")[1].slice(0,2))){
+                  listArr.push(item);
+               };
+            });
             //출력하고 싶은 일기예보 5개만 담았다.(현재시간의 예보를 제외한 다음 예보부터)
-            for(let i=3; i<8;i++){
+            /* for(let i=3; i<8;i++){
                listArr.push(data["list"][i]);
-            }
+            } */
+            console.log(listArr);
             appInfo["forecast"] = listArr.slice();
-            console.log(appInfo);
-
             resolve(appInfo);
          });
       });
@@ -127,7 +140,7 @@ function getForecastInfo(appInfo) {
 
 // 4. 받은 날씨 정보로 화면을 변경합니다.
 function setInfo(cityName, appInfo) {
-   // console.log(appInfo);
+   console.log(appInfo);
    //날짜 포맷팅
    date.innerText = appInfo["dateFormat"][0]+"년 "+
                      appInfo["dateFormat"][1]+"월 "+
