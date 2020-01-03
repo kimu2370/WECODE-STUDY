@@ -109,7 +109,7 @@ function getForecastInfo(appInfo) {
          `https://api.openweathermap.org/data/2.5/forecast?lat=${appInfo["lat"]}&lon=${appInfo["lng"]}&APPID=${WEATHER_KEY}`
       ).then((response) => {
          response.json().then((data) => {
-
+            console.log(data);
             //현재 내 로컬 시간을 기준으로 5개의 일기예측 정보를 appInfo에 담는다.
             for(let i=0; i<8; i++){
                listArr.push(data["list"][i])

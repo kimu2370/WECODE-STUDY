@@ -120,7 +120,7 @@ let solution = document.querySelectorAll('span');
             ,div = document.createElement('div');
          for(let j=1; j<=i; j++){
             //별찍기의 열을 담당.
-            star = star+"*";
+            star = star+"*"; 
          }
          arr.push(star+"\n");
          div.innerText=arr[i-1];
@@ -260,7 +260,7 @@ let solution = document.querySelectorAll('span');
    });
 })();
 
-//12.두개의 숫자를 input text로 받아서 곱셈한 결과를 p태그에 출력하는 프로그램을 작성하시오.
+//12.
 (()=>{
    let num1,num2;
    let result = document.createElement('p');
@@ -283,7 +283,7 @@ let solution = document.querySelectorAll('span');
    solution[11].append(result);
 })();
 
-//13.남성, 여성중 한 개만 선택하도록 radio button을 만들고, 버튼을 누르면 선택한 값이 alert로 출력되도록 작성하시오.
+//13.
 (()=>{
    let radio1 = document.createElement('input');
       radio1.name="gender";//라디오 버튼에 name속성을 주어 그룹화시킴.하나만 checked
@@ -307,7 +307,7 @@ let solution = document.querySelectorAll('span');
       });
    }
 })();
-//14. 운동, 독서, 영화감상 을 checkbox로 만들고, 선택한 값(복수)을 p태그에 출력하는 프로그램을 작성하시오.
+//14.
 (()=>{
    let hobby = ["운동","독서","영화감상"];
    for(let i=0; i<3; i++){
@@ -342,3 +342,23 @@ let solution = document.querySelectorAll('span');
    {"name":"pc", "price":"2000"}, 
    {"name":"smart phone","price":"3000"}
 ] */
+
+(()=>{
+   //1. JSON데이터 변수 저장
+   //2. h1, h2 태그에 각각 name,price의 값을 출력.
+   let data = {
+      products : [
+         {name:"mp3",price:"1000"},
+         {name:"pc",price:"2000"},
+         {name:"smart phone",price:"3000"}
+      ]
+   };
+   for(let i=0; i<data.products.length;i++){
+      let h1 =document.createElement('h1');
+      let h2 =document.createElement('h2');
+      h1.innerText = data.products[i].name;
+      h2.innerText = data.products[i].price+"원 입니다.";
+      solution[14].append(h1);
+      solution[14].append(h2);
+   }
+})();
