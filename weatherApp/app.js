@@ -1,3 +1,4 @@
+//selector
 const body = document.querySelector("body");
 const date = document.querySelector(".date");
 const time = document.querySelector(".time");
@@ -15,7 +16,7 @@ const forecastTime = document.querySelectorAll(".forecastTime");
 
 // 도시 이름을 입력하고, Enter키를 누루면 아래 함수가 실행됩니다.
 searchForm.addEventListener("submit",(event) => {
-   event.preventDefault();
+   event.preventDefault();//데이터를 서버로 전송하는 것이 아닌 다른 목적으로 사용할 때,이 기본 이벤트를 취소시킴.
 
    const text = input.value;
 
@@ -110,7 +111,7 @@ function getForecastInfo(appInfo) {
          response.json().then((data) => {
 
             //현재 내 로컬 시간을 기준으로 5개의 일기예측 정보를 appInfo에 담는다.
-            for(let i=0; i<5; i++){
+            for(let i=0; i<8; i++){
                listArr.push(data["list"][i])
             }
             appInfo["forecast"] = listArr.slice();
@@ -143,7 +144,7 @@ function setInfo(cityName, appInfo) {
    city.innerText = cityName;
 
    //일기예보
-   for(let i=0; i<5; i++){
+   for(let i=0; i<8; i++){
       let forecastLink = imgLinks[appInfo["forecast"][i]["weather"][0]["main"]];
       forecastIcon[i].src = `image/icon/${forecastLink}`;
       forecastTemp[i].innerText = Math.floor(appInfo["forecast"][i]["main"]["temp"]-273.15)+"℃";

@@ -284,9 +284,58 @@ let solution = document.querySelectorAll('span');
 })();
 
 //13.남성, 여성중 한 개만 선택하도록 radio button을 만들고, 버튼을 누르면 선택한 값이 alert로 출력되도록 작성하시오.
-
+(()=>{
+   let radio1 = document.createElement('input');
+      radio1.name="gender";//라디오 버튼에 name속성을 주어 그룹화시킴.하나만 checked
+      radio1.type="radio";
+      radio1.style.margin="10px";
+      radio1.value="남성"
+   let radio2 = document.createElement('input');
+      radio2.name="gender";
+      radio2.type="radio";
+      radio2.style.margin="10px";
+      radio2.value="여성";
+      solution[12].append(radio1);
+      solution[12].append("남성");
+      solution[12].append(radio2);
+      solution[12].append("여성");
+   for(let i=0;i<2;i++){
+      solution[12].children[i].addEventListener('click',(event)=>{
+         if(event.target.checked){
+            alert(event.target.value);
+         }
+      });
+   }
+})();
 //14. 운동, 독서, 영화감상 을 checkbox로 만들고, 선택한 값(복수)을 p태그에 출력하는 프로그램을 작성하시오.
+(()=>{
+   let hobby = ["운동","독서","영화감상"];
+   for(let i=0; i<3; i++){
+      let input = document.createElement('input');
+      input.type="checkBox";
+      input.value=hobby[i];
+      solution[13].append(input);
+      solution[13].append(hobby[i]);
+   }
+   let button = document.createElement('button');
+   let p = document.createElement('p');
+   button.style.marginLeft="15px";
+   button.innerText="클릭";
+   solution[13].append(button);
+   //버튼클릭하면 checkbox의 check가 true인 것만 p태그에 출력하게한다.
+   button.addEventListener('click',(event)=>{
+      p.innerText="";
+      let result = [];
+      for(let i=0;i<3;i++){
+         if(solution[13].children[i].checked){
+            result.push(solution[13].children[i].value);
+         }
+      }
+      p.innerText = result.join(',');
+      solution[13].append(p);
+   });
 
+})();
 /* 15. 다음과 같은 JSON데이터를 변수에 저장한 후 name과 price를 각각 h1태그와 h2태그에 출력하는 프로그램을 작성하시오.
 "products":[
    {"name":"mp3", "price":"1000"}, 
