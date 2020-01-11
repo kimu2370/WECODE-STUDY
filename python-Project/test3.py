@@ -31,12 +31,12 @@ Q5. A 학급에 총 10명의 학생이 있다. 이 학생들의 중간고사 점
     for 문을 사용하여 A 학급의 평균 점수를 구해 보자.
 '''
 print('Q5')
-students = [70,60,55,75,95,90,80,85,100]
-avg = 0
-for grade in students:
-    avg = avg + grade
-    if grade==100:
-        print(avg/len(students))
+A = [70,60,55,75,95,90,80,85,100]
+total = 0
+for score in A:
+    total = total + score
+    if score==100:
+        print(round(total/len(A),1))
 
 '''
 Q6. 리스트 중에서 홀수에만 2를 곱하여 저장하는 다음 코드가 있다.
